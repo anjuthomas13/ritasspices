@@ -1,0 +1,30 @@
+
+
+.container-fluid
+{
+	width:70%;
+	background-color:lightblue;
+	margin-left:15%
+}
+h1
+{
+	font-family:Lemonada;
+}
+
+#mother
+{
+	border-radius:50%;	
+}
+
+p
+{
+	font-family:Galada;
+}
+a{
+	text-align:right;
+}
+footer
+{
+	clear:both;
+	text-align:center;
+}
