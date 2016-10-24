@@ -37,17 +37,11 @@ if(isset($_POST['email']))
    //sendto
    $mail->addAddress($to_id,"Ritas Spices");
    if (!$mail->send()) {
-	   echo ' <div class="alert alert-danger">
-	   <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times; </button>
-	   <strong><strong>Sorry  $name , it seems that my mail server is not responding. Please try again later!</strong>
-	   </div> '
+	   return false;
    }
    else
    {
-	    echo ' <div class="alert alert-success">
-	   <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times; </button>
-	   <strong>Your message has been sent. </strong>
-	   </div> '
+	    return true;
    }
 }
 // Create the email and send the message
