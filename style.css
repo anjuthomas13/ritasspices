@@ -74,7 +74,11 @@ header nav .nav .active a{
 
 header  .navbar .navbar-toggle
 {
+<<<<<<< HEAD
 	background-color:orange;
+=======
+	background-color:#123432;
+>>>>>>> e8c216569f79606fdf251a86bbd7007b4bc7da05
 	
 }
 header .navbar .navbar-toggle .icon-bar
