@@ -37,7 +37,7 @@ if(isset($_POST['email']))
    //sendto
    $mail->addAddress($to_id,"Ritas Spices");
    if (!$mail->send()) {
-	   return false;
+	   return true;
    }
    else
    {
