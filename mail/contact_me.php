@@ -20,7 +20,7 @@ if(isset($_POST['email']))
    $mail->isSMTP();
    $mail->Host = 'smtp.gmail.com';
    $mail->Port = 465;
-   $mail->SMTPSecure = 'tls';
+   $mail->SMTPSecure = 'ssl';
    $mail->SMTPAuth = true;
    $mail->Encoding='7bit';
    

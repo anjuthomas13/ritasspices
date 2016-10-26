@@ -74,11 +74,9 @@ header nav .nav .active a{
 
 header  .navbar .navbar-toggle
 {
-<<<<<<< HEAD
+
 	background-color:orange;
-=======
-	background-color:#123432;
->>>>>>> e8c216569f79606fdf251a86bbd7007b4bc7da05
+
 	
 }
 header .navbar .navbar-toggle .icon-bar
@@ -397,13 +395,7 @@ and(min-width: 769px)  and (max-width: 928px)
 		margin-top:-10px;
 	}
 	
-	header .nav-pills  li  
-	{
-		
-		display:block;
-		position:relative;
-		
-	}
+	
 	header .navbar.inbody img.logo
 	{
 		width:120px;
@@ -431,6 +423,10 @@ and(min-width: 769px)  and (max-width: 928px)
 	font-weight:300;
 	display:block;
 	}
+}
+
+@media (max-width: 768px) {
+  header .nav-pills  li   { width:100%; }
 }
 
 /**page--staff-----**/
