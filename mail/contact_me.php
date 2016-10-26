@@ -1,6 +1,8 @@
 <?php
 $to_id='ritasspices@gmail.com';
-require 'PHPMailer/class.phpmailer.php';
+require_once('PHPMailer/class.phpmailer.php');
+
+
 // Check for empty fields
 if(empty($_POST['name'])      ||
    empty($_POST['email'])     ||
@@ -10,19 +12,21 @@ if(empty($_POST['name'])      ||
    echo "No arguments Provided!";
    return false;
    }
-   
+   $subject="Website Contact Form:  $name";
 $name = strip_tags(htmlspecialchars($_POST['name']));
 $email_address = strip_tags(htmlspecialchars($_POST['email']));
 $message = strip_tags(htmlspecialchars($_POST['message']));
-if(isset($_POST['email']))
-{
-   $mail = new PHPMailer;
-   $mail->isSMTP();
+
+function smtpmailer($to_id, $email_address, $name, $subject, $message) 
+{ 
+	global $error;
+	$mail = new PHPMailer();  // create a new object
+	$mail->isSMTP();		//enable smtp
+	$mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
+	$mail->SMTPAuth = true;  // authentication enabled
+	$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail   
    $mail->Host = 'smtp.gmail.com';
    $mail->Port = 465;
-   $mail->SMTPSecure = 'ssl';
-   $mail->SMTPAuth = true;
-   $mail->Encoding='7bit';
    
    //authentication
    $mail->Username = "mail2ritasspices@gmail.com";
@@ -31,13 +35,13 @@ if(isset($_POST['email']))
    //compose
    $mail->SetFrom($email_address,$name);
    $mail->AddReplyTo($email_address,$name)
-   $mail->Subject = "Website Contact Form:  $name";
+   $mail->Subject = $subject;
    $mail->msgHTML($message);
    
    //sendto
-   $mail->addAddress($to_id,"Ritas Spices");
+   $mail->addAddress($to_id);
    if (!$mail->send()) {
-	   return true;
+	   return false;
    }
    else
    {
